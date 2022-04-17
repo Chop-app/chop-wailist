@@ -75,6 +75,7 @@ COMPONENTS
 
 button{
 padding: 12px 14px;
+margin: 5px 0;
 font-family: inherit;
 cursor: pointer;
 font-weight: 600;
@@ -111,6 +112,7 @@ display: flex;
 width: 200px;
 margin: 5px;
 height: 150px;
+box-shadow: rgba(0, 0, 0, 0.345);
 flex-shrink: 0;
 background-color: var(--secondary-color);
 }
@@ -291,7 +293,14 @@ transition: 0.2s;
 }
 
 /* MEDIA QUERY */
-
+@keyframes SlideToFro {
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(-200px);
+    }
+}
 @media screen and (max-width:620px) {
     .container-split .input-area input{
         width: 80vw;
@@ -300,6 +309,14 @@ transition: 0.2s;
         .input-container button[type="submit"]{
             width: 80vw;
         }
+
+            #hero .images-panel{
+           animation: SlideToFro 5s linear infinite;
+            }
+            #hero .hero-text-info .heading{
+                font-size:1.5rem;
+                }
+
 }
 
 @media screen and (min-width:800px) {
