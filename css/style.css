@@ -131,18 +131,19 @@ pointer-events: none;
 }
 
 #get-early-access{
-    position: fixed;
-    top: 0;
-    /* overflow-y:auto; */
-    left: 0;
-    width: 100%;
-    z-index: 9;
-    height: 100%;
-    background: var(--background-color-dim);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+position: fixed;
+top: 0;
+overflow-y:auto;
+overflow-x:hidden;
+left: 0;
+width: 100%;
+z-index: 9;
+height: 100%;
+background: var(--background-color-dim);
+backdrop-filter: blur(10px);
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 
@@ -182,41 +183,41 @@ display: block;
 }
 form[name='get-early-access'] .info-head{
 max-width: 500px;
-margin:auto;
-padding-top: 30px;
+margin:20px 0 0 0 ;
+padding:3px;
 font-size: 1.5rem;
 text-align: center;
 line-height: 1.7;
 }
 .tag{
-  text-align: center;
-  padding:6px;
-  position:absolute;
-  top:20px;
-  left:10px;
-  font-weight: bold ;
-  font-size: 12px;
+text-align: center;
+padding:6px;
+position:absolute;
+top:20px;
+left:10px;
+font-weight: bold ;
+font-size: 12px;
 opacity:0;
-  transition: 0.3s;
-  background-color:var(--primary-color);
-  color:var(--background-color);
+transition: 0.3s;
+background-color:var(--primary-color);
+color:var(--background-color);
 }
 .tag.success{
-  background-color:green;
+background-color:rgb(27, 220, 27);
 }
 .input-container{
-    display: flex;
-    flex-direction: column;
-    margin:auto;
-    /* max-width: 500px; */
+display: flex;
+flex-direction: column;
+margin:auto;
+/* max-width: 500px; */
 }
 
 .container-split{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: 1px ;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+margin: 1px ;
 }
 .container-split.vendor{
 display: none;
@@ -235,31 +236,31 @@ background-color: var(--secondary-color);
 }
 
 .input-container button[type="submit"]{
-    width: 50vw;
-    margin: 20px auto;
+width: 50vw;
+margin: 20px auto;
 }
 
 /* TOGGLER */
 
 #toggle{
-    margin-left: 10px; 
+margin-left: 10px; 
 }
 
 #toggle .note{
-    margin-left: 10px; 
-    margin-top: 2px;
-    font-size: 12px;
+margin-left: 10px; 
+margin-top: 2px;
+font-size: 12px;
 }
 
 .toggle{
-    width: 70px;
-    transform: scale(.8);
-    position: relative;
-    height: 30px;
-    box-shadow: 0 0 10px var(--foreground-color-dim);
-    cursor: pointer;
-    border-radius: 25px;
-    background-color: var(--secondary-color);
+width: 70px;
+transform: scale(.8);
+position: relative;
+height: 30px;
+box-shadow: 0 0 10px var(--foreground-color-dim);
+cursor: pointer;
+border-radius: 25px;
+background-color: var(--secondary-color);
 }
 
 .toggle input{
@@ -285,37 +286,42 @@ transition: 0.2s;
 }
 
 .toggle.on .switch{
-    transform: translateX(40px);
-    background-color: var(--secondary-color);
+transform: translateX(40px);
+background-color: var(--secondary-color);
 }
 .toggle.on {
-    background-color:  var(--primary-color);
+background-color:  var(--primary-color);
 }
 
 /* MEDIA QUERY */
 @keyframes SlideToFro {
-    0%{
-        transform: translateX(0);
-    }
-    50%{
-        transform: translateX(-200px);
-    }
+0%{
+transform: translateX(0);
+}
+50%{
+transform: translateX(-200px);
+}
 }
 @media screen and (max-width:620px) {
-    .container-split .input-area input{
-        width: 80vw;
-        }
-        
-        .input-container button[type="submit"]{
-            width: 80vw;
-        }
+.container-split .input-area input{
+width: 80vw;
+}
 
-            #hero .images-panel{
-           animation: SlideToFro 5s linear infinite;
-            }
-            #hero .hero-text-info .heading{
-                font-size:1.5rem;
-                }
+.input-container button[type="submit"]{
+width: 80vw;
+}
+
+#hero .images-panel{
+animation: SlideToFro 5s linear infinite;
+}
+#hero .hero-text-info .heading,
+form[name='get-early-access'] .info-head{
+font-size:1.5rem;
+}
+form[name='get-early-access'] .info-head{
+
+    margin:100px 0 0 0 ;
+    }
 
 }
 
@@ -345,8 +351,8 @@ font-size:1.72rem;
 
 
 @media screen and (min-width:1000px) {
-    #hero .hero-text-info .heading{
-        font-size:2.3rem;
-        max-width: 10000px !important;
-        }
+#hero .hero-text-info .heading{
+font-size:2.3rem;
+max-width: 10000px !important;
+}
 }
