@@ -3,7 +3,7 @@
 
 window.addEventListener('load',()=>{
 try {
-  const endpoint = ""
+  const endpoint = "https://onwaitlist.co/in/60da29a75431?"
     const toggler = document.querySelector('.toggle');
 const togglerInput = document.querySelector('.toggle input');
   //  console.log(toggler)
@@ -58,7 +58,7 @@ const togglerInput = document.querySelector('.toggle input');
 
 // FORM submission===>
 form.addEventListener('submit',(e)=>{
-e.preventDefault();
+ e.preventDefault();
 // @type ARRAY
 const targets = e.target
 const mode = document.querySelector(".toggle").className.includes("on")
@@ -82,15 +82,13 @@ errorTag.classList.add("success")
 let errors=[]
 const consumeApi = async (payload, callback)=>{
   try{
-  const response = await fetch(endpoint, {
-    method:"POST", 
-    headers:{
-      "Content-Type":"application/json", 
-    }, 
-    body:JSON.stringify(payload)
+  const response = await fetch(endpoint+payload, {
+    method:"GET", 
   });
-  console.log(response)
-  console.log(payload)
+  
+  callback(await response)
+  
+  
   } catch(e){
     console.log(e)
   }
@@ -103,9 +101,9 @@ if(name.value.length <3 || email.value.length <3) {
     ** @if vendor mode is turned on
     */
 
-if(mode){
 const businessName = targets[2]
 const location = targets[3]
+if(mode){
 if(businessName.value.length <3 || location.value.length <3){
   errors.push("Business Name is invalid ")
 }
@@ -116,9 +114,13 @@ if(businessName.value.length <3 || location.value.length <3){
 if(errors.length == 0){
 notify(true, ()=> accessPanel.classList.add('close')) 
 if(mode){
+    console.log(encodeURIComponent(name.value))
+consumeApi(`name=${encodeURIComponent(name.value)}&email=${encodeURIComponent(email.value)}&business=${encodeURIComponent(businessName.value)}&location=${encodeURIComponent(location.value)}`, (e)=>{
+  if(e.ok) window.open(e.url)
+})
  console.log("Vendor Access") 
 }
-consumeApi({name:name.value, email:email.value})
+
 console.log("User Access")
 form.reset()
 return
