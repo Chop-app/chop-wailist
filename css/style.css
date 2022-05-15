@@ -151,6 +151,7 @@ z-index: 9;
 height: 100%;
 background: var(--background-color-dim);
 backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
 display: flex;
 justify-content: center;
 align-items: center;
